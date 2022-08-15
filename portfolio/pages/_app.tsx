@@ -10,22 +10,27 @@ import Script from "next/script";
 function App({ Component, pageProps }: AppProps) {
   return (
     <div className="w-full min-h-screen font-inter bg-background">
-      <Script
-        src={
-          "https://www.googletagmanager.com/gtag/js?id=" +
-          process.env.NEXT_PUBLIC_GA_MESS_ID
-        }
-        strategy="afterInteractive"
-      />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
+      {process.env.NODE_ENV == "production" && (
+        <>
+          <Script
+            src={
+              "https://www.googletagmanager.com/gtag/js?id=" +
+              process.env.NEXT_PUBLIC_GA_MESS_ID
+            }
+            strategy="afterInteractive"
+          />
+          <Script id="google-analytics" strategy="afterInteractive">
+            {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){window.dataLayer.push(arguments);}
           gtag('js', new Date());
 
           gtag('config', '${process.env.NEXT_PUBLIC_GA_MESS_ID}');
         `}
-      </Script>
+          </Script>
+        </>
+      )}
+
       <NextNProgress
         color="rgb(217,70,239)"
         startPosition={0.3}
