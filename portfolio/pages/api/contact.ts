@@ -16,6 +16,8 @@ export default async function handler(req: any, res: any) {
       data: `response=${req.body.hCaptchaToken}&secret=${process.env.HCAPTCHA_SECRET}`,
     };
     const r = await axios(options);
+    console.log(r.status);
+    console.log(r.data);
     if (r.status == 200) {
       const login = await fetch(`${process.env.STRAPI_BASE_URL}/auth/local`, {
         method: "POST",
