@@ -1,0 +1,46 @@
+.quill {
+  border: 1px solid #4b5563;
+  outline: none;
+  border-radius: 0.375rem;
+  background-color: rgb(27 27 27) !important;
+}
+
+.quill .ql-toolbar {
+  border: none !important;
+  border-bottom: 1px solid #4b5563 !important;
+}
+
+.quill .ql-container {
+  border: none !important;
+}
+
+.quill .ql-size {
+  display: none !important;
+}
+
+.quill .ql-font {
+  display: none !important;
+}
+
+.quill .ql-formats {
+  margin-right: 0px !important;
+}
+
+.quill .ql-editor {
+  min-height: 10rem !important;
+}
+
+.quill .ql-stroke {
+  stroke: rgb(209, 209, 209) !important;
+}
+
+.quill .ql-fill {
+  fill: rgb(209, 209, 209) !important;
+}
+
+.quill .ql-active .ql-stroke {
+  stroke: rgb(232 121 249) !important;
+}
+.quill .ql-active .ql-fill {
+  fill: rgb(232 121 249) !important;
+}

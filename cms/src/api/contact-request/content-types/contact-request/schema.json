@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contact_requests",
+  "info": {
+    "singularName": "contact-request",
+    "pluralName": "contact-requests",
+    "displayName": "Contact Request"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "firstname": {
+      "type": "string",
+      "required": true
+    },
+    "lastname": {
+      "type": "string",
+      "required": true
+    },
+    "phone": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "region": {
+      "type": "string"
+    },
+    "subject": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "message": {
+      "type": "richtext",
+      "required": true
+    },
+    "ip": {
+      "type": "string"
+    },
+    "useragent": {
+      "type": "string"
+    }
+  }
+}
