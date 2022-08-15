@@ -13,7 +13,7 @@ function App({ Component, pageProps }: AppProps) {
       <Script
         src={
           "https://www.googletagmanager.com/gtag/js?id=" +
-          process.env.GA_MESS_ID
+          process.env.NEXT_PUBLIC_GA_MESS_ID
         }
         strategy="afterInteractive"
       />
@@ -23,7 +23,7 @@ function App({ Component, pageProps }: AppProps) {
           function gtag(){window.dataLayer.push(arguments);}
           gtag('js', new Date());
 
-          gtag('config', '${process.env.GA_MESS_ID}');
+          gtag('config', '${process.env.NEXT_PUBLIC_GA_MESS_ID}');
         `}
       </Script>
       <NextNProgress
