@@ -1,7 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import axios from "axios";
+import { csrf } from "../../services/csrf";
 
 export default async function handler(req: any, res: any) {
+  await csrf(req, res);
+
   if (req.method === "POST") {
     // Verify hCaptchaToken
     if (!req.body.hCaptchaToken || req.body.hCaptchaToken == "") {

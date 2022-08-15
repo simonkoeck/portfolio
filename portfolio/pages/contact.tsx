@@ -16,12 +16,14 @@ import {
 } from "react-country-region-selector";
 import Link from "../components/Link";
 import CustomHead from "../components/Head";
+import csrf from "../services/csrf";
 
 type Props = {
   countryName?: string;
   countryCode?: string;
   regionName?: string;
   ip?: string;
+  csrfToken: string;
 };
 
 export default function Contact({
@@ -29,6 +31,7 @@ export default function Contact({
   regionName,
   countryName,
   ip,
+  csrfToken,
 }: Props) {
   const [firstname, setFirstname] = useState<string>("");
   const [lastname, setLastname] = useState<string>("");
@@ -123,6 +126,7 @@ export default function Contact({
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            "CSRF-Token": csrfToken,
           },
           body: JSON.stringify({
             firstname,
@@ -315,9 +319,10 @@ export default function Contact({
 
 interface ISSRProps {
   req: any;
+  res: any;
 }
 
-export const getServerSideProps = async ({ req }: ISSRProps) => {
+export const getServerSideProps = async ({ req, res }: ISSRProps) => {
   const forwarded = req.headers["x-forwarded-for"];
 
   let ip =
@@ -328,8 +333,14 @@ export const getServerSideProps = async ({ req }: ISSRProps) => {
   if (process.env.NODE_ENV == "development") ip = "81.5.250.145";
 
   const r = await fetch(`http://ip-api.com/json/${ip}`);
-  if (r.status != 200) return { props: {} };
+  if (r.status != 200) {
+    await csrf(req, res);
+    return {
+      props: { csrfToken: req.csrfToken() },
+    };
+  }
   const j = await r.json();
+  await csrf(req, res);
 
   return {
     props: {
@@ -337,6 +348,7 @@ export const getServerSideProps = async ({ req }: ISSRProps) => {
       countryCode: j.countryCode,
       regionName: j.regionName,
       countryName: j.country,
+      csrfToken: req.csrfToken(),
     },
   };
 };

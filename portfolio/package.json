@@ -12,6 +12,7 @@
   "dependencies": {
     "@hcaptcha/react-hcaptcha": "^1.4.4",
     "axios": "^0.27.2",
+    "csurf": "^1.11.0",
     "framer-motion": "^7.1.0",
     "next": "12.2.4",
     "nextjs-progressbar": "^0.0.14",
