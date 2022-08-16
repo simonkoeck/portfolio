@@ -7,3 +7,8 @@ export async function getMany(
   );
   return await (await r).json();
 }
+
+export async function getSingleType(type: string, lang: string) {
+  const r = fetch(`${process.env.STRAPI_BASE_URL}/${type}?locale=${lang}`);
+  return (await (await r).json()).data.attributes;
+}

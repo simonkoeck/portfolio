@@ -84,7 +84,7 @@ const Home: NextPage = () => {
                   src="/images/me.png"
                   style={{ filter: "saturate(60%) sepia(50%) brightness(70%)" }}
                   alt="Me"
-                  className="absolute bottom-0 right-[-7rem] lg:right-[18rem] z-10 lg:z-30 lg:z-auto h-[100%] lg:h-full pointer-events-none select-none"
+                  className="absolute bottom-0 right-[-7rem] lg:right-[18rem] z-10 lg:z-30 h-[100%] lg:h-full pointer-events-none select-none"
                 />
               </motion.div>
             </div>
