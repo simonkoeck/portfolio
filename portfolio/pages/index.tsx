@@ -29,7 +29,7 @@ const Home: NextPage = () => {
               transition={{ duration: 0.4 }}
               animate={{ opacity: 1, translateX: 0 }}
             >
-              <h1 className="font-black text-[3.8rem] md:text-[5rem] tracking-tight leading-[1.2]">
+              <h1 className="font-black text-[3.8rem] md:text-[5rem] tracking-tight leading-[1.2] relative">
                 Hello,
                 <br />
                 I&apos;m{" "}
@@ -45,6 +45,13 @@ const Home: NextPage = () => {
                     </span>
                   </div>
                 </motion.div>
+                <div className="block md:hidden absolute top-[-78px] right-[-170px]">
+                  <img src="/images/mobile-me.png" />
+                  <img
+                    src="/images/finger.png"
+                    className="absolute top-[156px] left-[26px] w-[45px] z-50"
+                  />
+                </div>
               </h1>
               <div className="relative z-30 inline-block mt-10">
                 <Link href="/contact" passHref>
@@ -67,7 +74,7 @@ const Home: NextPage = () => {
               </div>
             </motion.div>
 
-            <div>
+            <div className="hidden md:block">
               <motion.div
                 initial={{ opacity: 0 }}
                 transition={{ duration: 0.4 }}
