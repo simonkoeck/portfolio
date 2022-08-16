@@ -36,17 +36,10 @@ const Home: NextPage = () => {
                 <motion.div
                   initial={{ rotateZ: 0 }}
                   animate={{ rotateZ: 6 }}
-                  whileHover={{ scale: 1.03, rotateZ: 0 }}
-                  whileTap={{ scale: 1.1, rotateZ: 0 }}
-                  drag="x"
-                  dragConstraints={{
-                    left: -20,
-                    right: 20,
-                  }}
                   transition={{ duration: 0.3 }}
                   className="relative z-30 inline-block"
                 >
-                  <div className="inline-block mx-0 my-6 transition-all rounded-lg cursor-pointer sm:mx-2 bg-background2">
+                  <div className="inline-block mx-0 my-6 transition-all rounded-lg sm:mx-2 bg-background2">
                     <span className="px-2 py-0 sm:px-6 sm:py-2 text-[3rem] md:text-[4.5rem] text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-500 to-fuchsia-300">
                       &lt;Simon /&gt;
                     </span>
@@ -86,7 +79,7 @@ const Home: NextPage = () => {
                     filter: "saturate(70%) sepia(30%) brightness(100%)",
                   }}
                   alt="Simon Köck posing in the dark <3"
-                  className="absolute bottom-0 right-[-7rem] lg:right-[18rem] z-10 lg:z-30 h-[100%] lg:h-full pointer-events-none select-none"
+                  className="absolute bottom-0 right-[-7rem] lg:right-[6rem] z-10 lg:z-30 h-[100%] lg:h-[calc(100%_+_5rem)] pointer-events-none select-none"
                 />
               </motion.div>
             </div>
@@ -96,7 +89,7 @@ const Home: NextPage = () => {
               textShadow:
                 "-3px -3px 0 #fff,3px -3px 0 #fff, -3px 3px 0 #fff, 3px 3px 0 #fff",
             }}
-            className="rotate-90 right-[-3rem] sm:right-[3rem] sm:rotate-0 select-none absolute opacity-[2%] top-0 font-black text-background text-[22rem] sm:text-[28rem]  z-[0] leading-tight"
+            className="rotate-90 right-[-3rem] sm:right-[10rem] sm:rotate-0 select-none absolute opacity-[2%] top-0 font-black text-background text-[22rem] sm:text-[28rem]  z-[0] leading-tight"
           >
             DEV
           </div>
