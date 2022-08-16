@@ -82,8 +82,10 @@ const Home: NextPage = () => {
               >
                 <img
                   src="/images/me.png"
-                  style={{ filter: "saturate(60%) sepia(50%) brightness(70%)" }}
-                  alt="Me"
+                  style={{
+                    filter: "saturate(70%) sepia(30%) brightness(100%)",
+                  }}
+                  alt="Simon Köck posing in the dark <3"
                   className="absolute bottom-0 right-[-7rem] lg:right-[18rem] z-10 lg:z-30 h-[100%] lg:h-full pointer-events-none select-none"
                 />
               </motion.div>
