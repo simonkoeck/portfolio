@@ -25,6 +25,7 @@ export const getServerSideProps = async ({ res }: IProps) => {
         "404.tsx",
         "_app.tsx",
         "_document.tsx",
+        "robots.txt",
         "api",
       ].includes(staticPage);
     })
