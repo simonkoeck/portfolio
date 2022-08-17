@@ -50,7 +50,7 @@ export default function Header({}: Props) {
               animate={{ opacity: 1, left: "0" }}
               exit={{ opacity: 0, left: "-100%" }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-50 w-4/5 h-screen rounded-r-3xl bg-background2 "
+              className="fixed inset-0 z-[100] w-4/5 h-screen rounded-r-3xl bg-background2 "
             >
               <div className="relative flex flex-col justify-between w-full h-full px-5 py-10">
                 <div className="flex flex-row items-center justify-between">
@@ -103,6 +103,7 @@ export default function Header({}: Props) {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
               className="fixed inset-0 z-40 w-full h-screen bg-background2"
+              onClick={() => setNavigationDrawer(false)}
             >
               <div> </div>
             </motion.div>
