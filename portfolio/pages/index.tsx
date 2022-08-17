@@ -55,7 +55,7 @@ const Home: NextPage = () => {
               </h1>
               <div className="relative z-30 inline-block mt-10">
                 <Link href="/contact" passHref>
-                  <a className="flex flex-row items-center px-3 py-2 space-x-2 font-bold border-2 rounded-md cursor-pointer sm:space-x-3 sm:px-5 sm:py-2 text-md md:text-lg bg-background border-fuchsia-400">
+                  <a className="flex flex-row items-center px-3 py-2 space-x-2 text-sm font-bold border-2 rounded-md cursor-pointer sm:space-x-3 sm:px-5 sm:py-2 md:text-lg bg-background border-fuchsia-400">
                     <HiMail className="fill-fuchsia-400" />
                     <span className="text-fuchsia-400">Contact me</span>
                   </a>
@@ -66,7 +66,7 @@ const Home: NextPage = () => {
                   href="https://github.com/simonkoeck/portfolio"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex flex-row items-center px-3 py-2 space-x-2 font-bold border-2 border-gray-400 rounded-md cursor-pointer sm:space-x-3 sm:px-5 sm:py-2 text-md md:text-lg bg-background"
+                  className="flex flex-row items-center px-3 py-2 space-x-2 text-sm font-bold border-2 border-gray-400 rounded-md cursor-pointer sm:space-x-3 sm:px-5 sm:py-2 md:text-lg bg-background"
                 >
                   <FaGithub className="fill-gray-400" />
                   <span className="text-gray-400">View the Source-Code</span>
