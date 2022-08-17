@@ -1,5 +1,6 @@
 import React from "react";
 import * as fs from "fs";
+// @ts-ignore
 import dateformat from "dateformat";
 
 const Sitemap = () => {
