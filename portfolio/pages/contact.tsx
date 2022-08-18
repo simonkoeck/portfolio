@@ -268,6 +268,7 @@ export default function Contact({
                 onChange={(v) => setMessage(v)}
                 error={fieldErrors.message}
               />
+
               {!success && (
                 <>
                   <div className="my-6">
@@ -298,6 +299,12 @@ export default function Contact({
                   </button>
                 </>
               )}
+            </div>
+            <div className="mt-3 text-sm">
+              <span className="text-gray-400">
+                I care about the protection of your data. Read my{" "}
+              </span>
+              <Link href="/privacy">Privacy Policy</Link>{" "}
             </div>
           </form>
           <div className="w-full md:w-1/2">

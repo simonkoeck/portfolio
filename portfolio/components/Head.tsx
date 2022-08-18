@@ -21,6 +21,7 @@ export default function CustomHead({ title, description }: Props) {
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="theme-color" content="#121212" />
+      <meta name="keywords" content="simon köck, simon köck developer" />
 
       <link
         rel="apple-touch-icon"

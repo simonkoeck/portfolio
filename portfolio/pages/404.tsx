@@ -16,7 +16,7 @@ export default function NotFound({}: Props) {
             Not Found :(
           </div>
           <p className="text-gray-400">
-            Unfortunatelly, your requested site could not be found!
+            Unfortunately, your requested site could not be found!
           </p>
           <Link href="/" passHref>
             <a className="px-5 py-2 mt-8 font-bold border-2 rounded-md text-fuchsia-500 border-fuchsia-500">

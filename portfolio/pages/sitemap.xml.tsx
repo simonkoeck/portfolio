@@ -59,7 +59,7 @@ export const getServerSideProps = async ({ res }: IProps) => {
     } else if (url == `${BASE_URL}/projects`) {
       return 0.9;
     }
-    return 0.5;
+    return 0.3;
   }
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
