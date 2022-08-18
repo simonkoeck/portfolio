@@ -299,7 +299,7 @@ const AboutMeItem: React.FC<AboutMeItemProps> = (props: AboutMeItemProps) => {
       </div>
       <div className="flex flex-col items-start justify-start pr-0 ">
         <div className="relative">
-          <h3 className="mb-3 text-xl font-bold text-white after:w-full">
+          <h3 className="mb-3 text-xl font-semibold text-white after:w-full">
             {props.title}
           </h3>
           <div className="absolute w-[calc(100%+0.6rem)] h-[2px] bg-gray-400 rounded-md bottom-[0.6rem] left-[-0.3rem] opacity-30"></div>
