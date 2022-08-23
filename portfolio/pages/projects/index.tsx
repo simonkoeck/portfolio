@@ -85,7 +85,7 @@ export async function getStaticProps() {
     `${process.env.STRAPI_BASE_URL}/projects?populate=*&sort[0]=featured%3Adesc`
   );
   let projects = await res.json();
-  console.log(projects);
+  console.log(projects.data);
   console.log(res.status);
 
   projects = projects.data.map((p: any) => {
