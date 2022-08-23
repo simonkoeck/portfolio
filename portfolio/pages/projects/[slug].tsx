@@ -23,14 +23,14 @@ import { useRouter } from "next/router";
 
 type Props = {
   slug: any;
-  project: Project;
+  project?: Project;
 };
 
 export default function ProjectInfo({ slug, project }: Props) {
   const { data } = useVisitorData();
   const [liked, setLiked] = useState<boolean | null>(null);
 
-  const [likedCount, setLikedCount] = useState(project.likes);
+  const [likedCount, setLikedCount] = useState(project?.likes);
 
   const router = useRouter();
 
@@ -43,11 +43,11 @@ export default function ProjectInfo({ slug, project }: Props) {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ project_id: project.id }),
+          body: JSON.stringify({ project_id: project?.id }),
         });
       })();
       setLiked(false);
-      setLikedCount(likedCount - 1);
+      setLikedCount((likedCount || 0) - 1);
       return;
     } else {
       (async () => {
@@ -57,13 +57,13 @@ export default function ProjectInfo({ slug, project }: Props) {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            project_id: project.id,
+            project_id: project?.id,
             visitor_id: data?.visitorId,
           }),
         });
       })();
       setLiked(true);
-      setLikedCount(likedCount + 1);
+      setLikedCount((likedCount || 0) + 1);
     }
   };
 
@@ -72,7 +72,7 @@ export default function ProjectInfo({ slug, project }: Props) {
       // Check if visitor liked post
       (async () => {
         const r = await fetch(
-          `/api/check-project-like?visitor_id=${data.visitorId}&project_id=${project.id}`
+          `/api/check-project-like?visitor_id=${data.visitorId}&project_id=${project?.id}`
         );
         const j = await r.json();
         if (j.liked == true) {
