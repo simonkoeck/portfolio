@@ -8,6 +8,8 @@ type Props = {
 };
 
 export default function ProjectsPage({ projects }: Props) {
+  if (!projects) return null;
+
   return (
     <HomeLayout>
       <div className="w-full">
@@ -38,8 +40,10 @@ export async function getStaticProps() {
     `${process.env.STRAPI_BASE_URL}/projects?populate=*&sort[0]=featured%3Adesc`
   );
   let projects = await res.json();
-  console.log(projects.data.map);
-  console.log(res.status);
+
+  if (projects.data == null) {
+    return { props: {}, revalidate: 10 };
+  }
 
   projects = projects.data.map((p: any) => {
     let project: Project = p.attributes;
