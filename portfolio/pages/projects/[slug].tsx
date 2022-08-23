@@ -33,9 +33,6 @@ export default function ProjectInfo({ slug, project }: Props) {
   const [likedCount, setLikedCount] = useState(project.likes);
 
   const router = useRouter();
-  if (!router.isFallback && !project) {
-    return <div></div>;
-  }
 
   const toggleLike = () => {
     if (liked == null) return;
@@ -86,6 +83,10 @@ export default function ProjectInfo({ slug, project }: Props) {
       })();
     }
   }, [data]);
+
+  if (!router.isFallback && !project) {
+    return <div></div>;
+  }
 
   return (
     <HomeLayout>
