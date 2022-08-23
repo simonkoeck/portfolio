@@ -34,6 +34,8 @@ export default function ProjectInfo({ slug, project }: Props) {
 
   const router = useRouter();
 
+  if (router.isFallback || !project) return null;
+
   const toggleLike = () => {
     if (liked == null) return;
     if (liked == true) {
