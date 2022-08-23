@@ -146,16 +146,20 @@ export default function ProjectInfo({ slug, project }: Props) {
                 </div>
 
                 <p className="mt-3 text-gray-400">{project.description}</p>
-                <div className="my-10 max-h-96">
-                  <img
-                    src={
-                      process.env.NEXT_PUBLIC_STRAPI_URL +
-                      project.preview_image.formats.large.url
-                    }
-                    alt="Preview Image"
-                    className="object-contain object-left w-full max-h-96"
-                  />
-                </div>
+                {project.preview_image != null && (
+                  <div className="my-10 max-h-96">
+                    <img
+                      src={
+                        process.env.NEXT_PUBLIC_STRAPI_URL +
+                        (project.preview_image.formats.large != null
+                          ? project.preview_image.formats.large!.url
+                          : project.preview_image.url)
+                      }
+                      alt="Preview Image"
+                      className="object-contain object-left w-full max-h-96"
+                    />
+                  </div>
+                )}
 
                 <div className="flex flex-row flex-wrap mb-10 space-x-2 md:space-x-4">
                   <div className="inline-flex flex-row items-center px-3 py-1 mt-3 space-x-2 bg-gray-800 rounded-md">

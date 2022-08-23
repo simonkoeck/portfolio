@@ -13,11 +13,12 @@ export interface Project {
   url: string;
   author: IAuthor;
   preview_image: {
+    url: string;
     formats: {
-      large: { url: string };
-      small: { url: string };
-      medium: { url: string };
-      thumbnail: { url: string };
+      large?: { url: string };
+      small?: { url: string };
+      medium?: { url: string };
+      thumbnail?: { url: string };
     };
   };
   featured: boolean;
