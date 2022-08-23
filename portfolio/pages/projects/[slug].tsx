@@ -146,7 +146,7 @@ export default function ProjectInfo({ slug, project }: Props) {
                 </div>
 
                 <p className="mt-3 text-gray-400">{project.description}</p>
-                {project.preview_image != null && (
+                {project.preview_image.formats != null && (
                   <div className="my-10 max-h-96">
                     <img
                       src={
