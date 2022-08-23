@@ -84,10 +84,6 @@ export default function ProjectInfo({ slug, project }: Props) {
     }
   }, [data]);
 
-  if (!router.isFallback && !project) {
-    return <div></div>;
-  }
-
   return (
     <HomeLayout>
       <CustomHead description={project.description} title={project.title} />
