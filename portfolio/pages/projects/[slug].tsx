@@ -203,6 +203,8 @@ export async function getStaticProps(c: any) {
   const r = await fetch(
     `${process.env.STRAPI_BASE_URL}/projects?filters[slug][$eq]=${c.params.slug}&populate=*`
   );
+  console.log(r.status);
+  console.log(await r.text());
   const projects = (await r.json()).data;
 
   if (projects.length == 0) {
