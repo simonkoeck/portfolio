@@ -151,8 +151,8 @@ export default function ProjectInfo({ slug, project }: Props) {
                     <img
                       src={
                         process.env.NEXT_PUBLIC_STRAPI_URL +
-                        (project.preview_image.formats.large != null
-                          ? project.preview_image.formats.large!.url
+                        (project.preview_image.formats?.large != null
+                          ? project.preview_image.formats?.large!.url
                           : project.preview_image.url)
                       }
                       alt="Preview Image"
