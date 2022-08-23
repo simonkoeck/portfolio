@@ -17,8 +17,8 @@ export default function CustomLink({ children, href, onClick }: Props) {
           onClick();
         }}
       >
-        <span className="text-fuchsia-400">{children}</span>
-        <HiArrowRight className="text-[0.8rem] fill-fuchsia-400" />
+        <span className="!text-fuchsia-400">{children}</span>
+        <HiArrowRight className="text-[0.8rem] !fill-fuchsia-400" />
       </span>
     );
   }
@@ -30,16 +30,16 @@ export default function CustomLink({ children, href, onClick }: Props) {
           href={href}
           rel="noopener noreferrer"
           target="_blank"
-          className="inline-flex flex-row items-center space-x-[0.15rem]"
+          className="inline-flex flex-row items-center space-x-[0.15rem] !no-underline"
         >
-          <span className="text-fuchsia-400">{children}</span>
-          <HiArrowRight className="text-[0.8rem] fill-fuchsia-400" />
+          <span className="!text-fuchsia-400">{children}</span>
+          <HiArrowRight className="text-[0.8rem] !fill-fuchsia-400" />
         </a>
       ) : (
         <Link href={href} passHref>
-          <a className="inline-flex flex-row items-center space-x-[0.15rem]">
-            <span className="text-fuchsia-400">{children}</span>
-            <HiArrowRight className="text-[0.8rem] fill-fuchsia-400" />
+          <a className="inline-flex flex-row items-center space-x-[0.15rem] !no-underline">
+            <span className="!text-fuchsia-400">{children}</span>
+            <HiArrowRight className="text-[0.8rem] !fill-fuchsia-400" />
           </a>
         </Link>
       )}

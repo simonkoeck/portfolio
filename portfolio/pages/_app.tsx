@@ -6,6 +6,7 @@ import ReactTooltip from "react-tooltip";
 
 import "../styles/quill.css";
 import Script from "next/script";
+import { FpjsProvider } from "@fingerprintjs/fingerprintjs-pro-react";
 
 function App({ Component, pageProps }: AppProps) {
   return (
@@ -67,7 +68,14 @@ function App({ Component, pageProps }: AppProps) {
         />
         <meta name="theme-color" content="#E879F9" />
       </Head>
-      <Component {...pageProps} />
+      <FpjsProvider
+        loadOptions={{
+          apiKey: "cdDmZKapvuQWlYydHrDq",
+          region: "eu",
+        }}
+      >
+        <Component {...pageProps} />
+      </FpjsProvider>
     </div>
   );
 }

@@ -5,14 +5,15 @@ import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { GetStaticProps } from "next";
 import { getSingleType } from "../services/strapi";
 import CustomHead from "../components/Head";
+import MarkdownWrapper from "../components/MarkdownWrapper";
 
 type Props = {
-  source: MDXRemoteSerializeResult;
+  content: string;
   title: string;
   updatedAt: string;
 };
 
-export default function Imprint({ source, title, updatedAt }: Props) {
+export default function Imprint({ content, title, updatedAt }: Props) {
   return (
     <HomeLayout>
       <CustomHead
@@ -26,9 +27,7 @@ export default function Imprint({ source, title, updatedAt }: Props) {
             Last updated at: {updatedAt}
           </p>
           <div className="w-full h-[1px] bg-gray-700 my-16"></div>
-          <div className="max-w-full prose lg:prose-lg prose-p:text-gray-300 prose-strong:text-gray-200 prose-strong:font-bold prose-a:text-fuchsia-400">
-            <MDXRemote {...source}></MDXRemote>
-          </div>
+          <MarkdownWrapper>{content}</MarkdownWrapper>
         </div>
       </div>
     </HomeLayout>
@@ -38,10 +37,9 @@ export default function Imprint({ source, title, updatedAt }: Props) {
 export const getStaticProps: GetStaticProps = async (context) => {
   const data = await getSingleType("privacy-policy", context.locale!);
 
-  const mdxSource = await serialize(data.content);
   return {
     props: {
-      source: mdxSource,
+      content: data.content,
       title: data.title,
       updatedAt: new Date(data.updatedAt).toLocaleDateString("en-US"),
     },

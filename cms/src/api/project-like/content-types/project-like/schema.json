@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "project_likes",
+  "info": {
+    "singularName": "project-like",
+    "pluralName": "project-likes",
+    "displayName": "Project Like",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "visitor_id": {
+      "type": "string",
+      "private": true,
+      "required": true
+    },
+    "project": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::project.project",
+      "inversedBy": "project_likes"
+    }
+  }
+}

@@ -6,6 +6,9 @@ const nextConfig = {
     defaultLocale: "en",
     locales: ["en"],
   },
+  images: {
+    domains: [process.env.STRAPI_DOMAIN],
+  },
   webpack: (config, { dev }) => {
     return {
       ...config,

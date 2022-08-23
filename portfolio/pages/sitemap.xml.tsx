@@ -51,6 +51,9 @@ export const getServerSideProps = async ({ res }: IProps) => {
       return dateformat(stats.mtime, "yyyy-mm-dd");
     });
 
+  const r = await fetch(`${process.env.STRAPI_BASE_URL}/projects`);
+  const projects = (await r.json()).data;
+
   function getPriority(url: string): number {
     if (url == `${BASE_URL}/`) {
       return 1.0;
@@ -62,6 +65,11 @@ export const getServerSideProps = async ({ res }: IProps) => {
     return 0.3;
   }
 
+  function getProjectPriority(project: any): number {
+    if (project.attributes.featured) return 0.7;
+    else return 0.6;
+  }
+
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
       ${staticPaths
@@ -71,6 +79,20 @@ export const getServerSideProps = async ({ res }: IProps) => {
               <loc>${url}</loc>
               <lastmod>${lastModified[i]}</lastmod>
               <priority>${getPriority(url)}</priority>
+            </url>
+          `;
+        })
+        .join("")}
+      ${projects
+        .map((p: any, i: number) => {
+          return `
+            <url>
+              <loc>${BASE_URL}/projects/${p.attributes.slug}</loc>
+              <lastmod>${dateformat(
+                p.attributes.updatedAt,
+                "yyyy-mm-dd"
+              )}</lastmod>
+              <priority>${getProjectPriority(p)}</priority>
             </url>
           `;
         })

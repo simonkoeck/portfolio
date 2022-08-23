@@ -20,18 +20,6 @@ export default async function handler(req: any, res: any) {
     };
     const r = await axios(options);
     if (r.status == 200 && r.data.success == true) {
-      const login = await fetch(`${process.env.STRAPI_BASE_URL}/auth/local`, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          identifier: process.env.STRAPI_IDENTIFIER,
-          password: process.env.STRAPI_PASSWORD,
-        }),
-      });
-      const loginResponseData = await login.json();
       const rp = await fetch(
         `${process.env.STRAPI_BASE_URL}/contact-requests`,
         {
@@ -39,7 +27,7 @@ export default async function handler(req: any, res: any) {
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
-            Authorization: `Bearer ${loginResponseData.jwt}`,
+            Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
           },
           body: JSON.stringify({
             data: {
