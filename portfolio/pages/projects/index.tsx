@@ -48,7 +48,7 @@ export async function getStaticProps() {
   projects = projects?.data?.map((p: any) => {
     let project: Project = p.attributes;
     project.author = p.attributes.author.data.attributes;
-    if (p.attributes.preview_image != null) {
+    if (p.attributes.preview_image.attributes != null) {
       project.preview_image = p.attributes.preview_image.data.attributes;
     }
     return project;

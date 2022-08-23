@@ -222,7 +222,7 @@ export async function getStaticProps(c: any) {
 
   const project: Project = projects[0].attributes;
   project.author = projects[0].attributes.author.data.attributes;
-  if (projects[0].attributes.preview_image != null) {
+  if (projects[0].attributes.preview_image.attributes != null) {
     project.preview_image =
       projects[0].attributes.preview_image.data.attributes;
   }
