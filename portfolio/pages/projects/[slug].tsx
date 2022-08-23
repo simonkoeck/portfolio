@@ -19,6 +19,7 @@ import CustomLink from "../../components/Link";
 import MarkdownWrapper from "../../components/MarkdownWrapper";
 import { Project } from "../../interfaces/project";
 import { useVisitorData } from "@fingerprintjs/fingerprintjs-pro-react";
+import { useRouter } from "next/router";
 
 type Props = {
   slug: any;
@@ -30,6 +31,11 @@ export default function ProjectInfo({ slug, project }: Props) {
   const [liked, setLiked] = useState<boolean | null>(null);
 
   const [likedCount, setLikedCount] = useState(project.likes);
+
+  const router = useRouter();
+  if (!router.isFallback && !project) {
+    return <div></div>;
+  }
 
   const toggleLike = () => {
     if (liked == null) return;
