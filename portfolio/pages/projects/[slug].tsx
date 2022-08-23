@@ -222,7 +222,10 @@ export async function getStaticProps(c: any) {
 
   const project: Project = projects[0].attributes;
   project.author = projects[0].attributes.author.data.attributes;
-  project.preview_image = projects[0].attributes.preview_image.data.attributes;
+  if (projects[0].attributes.preview_image != null) {
+    project.preview_image =
+      projects[0].attributes.preview_image.data.attributes;
+  }
   project.id = projects[0].id;
 
   const r1 = await fetch(
