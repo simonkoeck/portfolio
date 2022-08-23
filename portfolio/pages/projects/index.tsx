@@ -45,7 +45,7 @@ export async function getStaticProps() {
     return { props: {}, revalidate: 10 };
   }
 
-  projects = projects.data.map((p: any) => {
+  projects = projects?.data?.map((p: any) => {
     let project: Project = p.attributes;
     project.author = p.attributes.author.data.attributes;
     project.preview_image = p.attributes.preview_image.data.attributes;
