@@ -41,7 +41,7 @@ export async function getStaticProps() {
   );
   let projects = await res.json();
 
-  if (projects.data == null) {
+  if (!projects.data) {
     return { props: {}, revalidate: 10 };
   }
 
@@ -58,5 +58,6 @@ export async function getStaticProps() {
       projects,
     },
     revalidate: 10,
+    fallback: "blocking",
   };
 }
