@@ -1,7 +1,7 @@
 import { GetStaticPaths } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import {
   HiArrowLeft,
   HiClock,
@@ -27,7 +27,7 @@ type Props = {
 };
 
 export default function ProjectInfo({ slug, project }: Props) {
-  const { data } = useVisitorData();
+  const { isLoading, error, data } = useVisitorData({}, { immediate: true });
   const [liked, setLiked] = useState<boolean | null>(null);
 
   const [likedCount, setLikedCount] = useState(project?.likes);
@@ -67,9 +67,26 @@ export default function ProjectInfo({ slug, project }: Props) {
     }
   };
 
+  const [isFetching, setIsFetching] = useState<boolean>(false);
+
   useEffect(() => {
-    if (data?.visitorFound == true && data.visitorId != null && liked == null) {
+    if (error) {
+      alert(error.message);
+      alert(error.name);
+    }
+  }, [error]);
+
+  useEffect(() => {
+    if (isLoading == true || liked != null) return;
+
+    if (
+      data?.visitorFound == true &&
+      data.visitorId != null &&
+      liked == null &&
+      !isFetching
+    ) {
       // Check if visitor liked post
+      setIsFetching(true);
       (async () => {
         const r = await fetch(
           `/api/check-project-like?visitor_id=${data.visitorId}&project_id=${project?.id}`
@@ -82,7 +99,7 @@ export default function ProjectInfo({ slug, project }: Props) {
         }
       })();
     }
-  }, [data]);
+  }, [data, isLoading]);
 
   if (router.isFallback || !project) return null;
 
@@ -104,13 +121,21 @@ export default function ProjectInfo({ slug, project }: Props) {
                     <HiHeart
                       className={
                         "text-3xl " +
-                        (liked ? "fill-fuchsia-500" : "fill-gray-500")
+                        (liked == null
+                          ? "fill-gray-700"
+                          : liked == true
+                          ? "fill-fuchsia-500"
+                          : "fill-gray-500")
                       }
                     />
                     <span
                       className={
-                        "text-sm font-semibold " +
-                        (liked ? "text-fuchsia-500" : "text-gray-500")
+                        "text-sm font-medium " +
+                        (liked == null
+                          ? "text-gray-700"
+                          : liked == true
+                          ? "text-fuchsia-500"
+                          : "text-gray-500")
                       }
                     >
                       {likedCount}
@@ -118,7 +143,7 @@ export default function ProjectInfo({ slug, project }: Props) {
                   </div>
                   <div className="flex flex-col items-center cursor-pointer">
                     <HiShare className="text-3xl fill-gray-500" />
-                    <span className="text-sm font-semibold text-gray-500">
+                    <span className="text-sm font-medium text-gray-500">
                       Share
                     </span>
                   </div>
