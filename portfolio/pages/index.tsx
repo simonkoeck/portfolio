@@ -23,7 +23,7 @@ const Home: NextPage = () => {
     <>
       <CustomHead
         description="My Name is Simon Köck and I live in Austria. I'm 18 years old and I've been specialicing on Full-Stack-Development for about 5 years."
-        title="Simon Köck | Full Stack Developer"
+        title="Simon Köck | Full-Stack-Developer"
       />
       <HomeLayout>
         <div className="w-full">
