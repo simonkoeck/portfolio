@@ -1,5 +1,5 @@
 import { FaInstagram, FaGithub, FaLinkedin } from "react-icons/fa";
-
+import FiverrIcon from "../components/FiverrIcon";
 export const socials = [
   {
     name: "instagram",
@@ -15,5 +15,10 @@ export const socials = [
     name: "linkedin",
     url: "https://www.linkedin.com/in/simonkoeck/",
     icon: FaLinkedin,
+  },
+  {
+    name: "fiverr",
+    url: "https://fiverr.com/simonkoeck",
+    icon: FiverrIcon,
   },
 ];

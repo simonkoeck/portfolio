@@ -50,7 +50,7 @@ const Home: NextPage = () => {
                   </div>
                 </motion.div>
                 <div className="block md:hidden absolute top-[-78px] right-[-170px]">
-                  <img src="/images/mobile-me.png" />
+                  <img src="/images/mobile-me.png" alt="Simon Köck" />
                   <img
                     src="/images/finger.png"
                     className="absolute top-[156px] left-[26px] w-[45px] z-50"
@@ -89,9 +89,10 @@ const Home: NextPage = () => {
                   style={{
                     filter: "saturate(70%) sepia(30%) brightness(100%)",
                   }}
-                  alt="Simon Köck posing in the dark <3"
+                  alt="Simon Köck"
                   className="absolute bottom-0 right-[-7rem] lg:right-[6rem] z-10 lg:z-30 h-[100%] lg:h-[calc(100%_+_5rem)] pointer-events-none select-none"
                 />
+                <span className="sr-only">Simon Köck</span>
               </motion.div>
             </div>
           </div>
