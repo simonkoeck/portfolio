@@ -55,8 +55,6 @@ const CodeBlock = {
           margin: "0 !important",
           borderRadius: "0.375rem !important",
         }}
-        lineNumberStyle={{ fontWeight: "bold", color: "#000 !important" }}
-        showLineNumbers={true}
         PreTag="div"
         {...props}
       >
