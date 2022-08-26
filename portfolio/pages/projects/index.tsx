@@ -32,7 +32,10 @@ export default function ProjectsPage({ projects }: Props) {
           <div className="flex flex-row flex-wrap mt-10">
             {projects.map((p) => {
               return (
-                <div className="pb-10 pr-10" key={p.slug}>
+                <div
+                  className="w-full pb-10 pr-10 md:w-1/2 lg:w-1/3"
+                  key={p.slug}
+                >
                   <ProjectItem project={p} />
                 </div>
               );
