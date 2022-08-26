@@ -1,4 +1,5 @@
 import React from "react";
+import CustomHead from "../../components/Head";
 import HomeLayout from "../../components/layouts/HomeLayout";
 import { ProjectItem } from "../../components/ProjectItem";
 import { Project } from "../../interfaces/project";
@@ -12,6 +13,10 @@ export default function ProjectsPage({ projects }: Props) {
 
   return (
     <HomeLayout>
+      <CustomHead
+        title="Simon Köck | Projects"
+        description="I have worked on numerous projects throughout my career. Here you can find a selection of my latest projects."
+      />
       <div className="w-full">
         <div className="container px-4 py-16 mx-auto">
           <div className="relative inline-block">

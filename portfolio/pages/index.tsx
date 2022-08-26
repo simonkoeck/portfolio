@@ -4,6 +4,7 @@ import {
   HiAcademicCap,
   HiArrowRight,
   HiBriefcase,
+  HiCode,
   HiMail,
   HiStar,
   HiUser,
@@ -253,6 +254,84 @@ const Home: NextPage = () => {
                       <p className="text-base font-normal text-gray-500 dark:text-gray-400">
                         Just a basic elementary school based in Feldkirch
                         (Tisis).
+                      </p>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div>
+          <div className="w-full bg-background2">
+            <div className="container flex flex-row items-center justify-between px-4 pt-3 pb-16 mx-auto lg:px-40 ">
+              <div className="flex flex-col">
+                <Headline2 text="Experience" />
+                <ol className="mx-3 mt-20 sm:flex">
+                  <li className="relative flex-1 mb-6 sm:mb-0">
+                    <div className="flex items-center">
+                      <div className="z-10 flex items-center justify-center w-6 h-6 rounded-full ring-0 bg-fuchsia-400 sm:ring-8 ring-gray-800 shrink-0">
+                        <HiCode className="fill-fuchsia-900" />
+                      </div>
+                      <div className="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
+                    </div>
+                    <div className="mt-3 sm:pr-8">
+                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                        TripleIn Software Solutions GmbH
+                      </h3>
+                      <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+                        September 2018 - Now
+                      </time>
+                      <p className="text-base font-normal text-gray-500 dark:text-gray-400">
+                        I&apos;ve been working as a oracle database developer at
+                        TripleIn Software Solutions GmbH.{" "}
+                        <CustomLink href="https://dev.triplein.at">
+                          View more
+                        </CustomLink>
+                      </p>
+                    </div>
+                  </li>
+                  <li className="relative flex-1 mb-6 sm:mb-0">
+                    <div className="flex items-center">
+                      <div className="z-10 flex items-center justify-center w-6 h-6 rounded-full ring-0 bg-fuchsia-400 sm:ring-8 ring-gray-800 shrink-0">
+                        <HiCode className="fill-fuchsia-900" />
+                      </div>
+                      <div className="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
+                    </div>
+                    <div className="mt-3 sm:pr-8">
+                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                        Austrian Informatic Olympiads
+                      </h3>
+                      <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+                        February 2018 - September 2018
+                      </time>
+                      <p className="text-base font-normal text-gray-500 dark:text-gray-400">
+                        The International Olympiad in Informatics (IOI) is the
+                        largest international programming competition for school
+                        students.{" "}
+                        <CustomLink href="https://www.ocg.at/de/ioi">
+                          View More
+                        </CustomLink>
+                      </p>
+                    </div>
+                  </li>
+                  <li className="relative flex-1 mb-6 sm:mb-0">
+                    <div className="flex items-center">
+                      <div className="z-10 flex items-center justify-center w-6 h-6 rounded-full ring-0 bg-fuchsia-400 sm:ring-8 ring-gray-800 shrink-0">
+                        <HiCode className="fill-fuchsia-900" />
+                      </div>
+                      <div className="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
+                    </div>
+                    <div className="mt-3 sm:pr-8">
+                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                        CodeBase
+                      </h3>
+                      <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+                        August 2017 - March 2018
+                      </time>
+                      <p className="text-base font-normal text-gray-500 dark:text-gray-400">
+                        Basically the start of my journey as a web developer.
+                        <CustomLink href="https://www.code-base.at/">
+                          View more
+                        </CustomLink>
                       </p>
                     </div>
                   </li>

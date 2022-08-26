@@ -59,29 +59,26 @@ type Props = {};
 
 export default function Header({}: Props) {
   const [navigationDrawer, setNavigationDrawer] = useState(false);
-  const router = useRouter();
 
   return (
     <>
-      {router.pathname == "/" && (
-        <div className="w-full bg-fuchsia-500 rounded-b-md">
-          <div className="flex flex-row items-center justify-center px-4 py-[0.24rem] space-x-4">
-            <HiMegaphone />
-            <div className="text-[0.74rem] sm:text-sm">
-              <b>Yeeahhh,</b> I&apos;m now on Fiverr! See my gigs and{" "}
-              <a
-                href="https://fiverr.com/simonkoeck"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex flex-row items-center space-x-1"
-              >
-                <b>hire me</b>
-                <HiArrowRight />
-              </a>
-            </div>
+      <div className="w-full bg-fuchsia-500 rounded-b-md">
+        <div className="flex flex-row items-center justify-center px-4 py-[0.24rem] space-x-4">
+          <HiMegaphone />
+          <div className="text-[0.74rem] sm:text-sm">
+            <b>Yeeahhh,</b> I&apos;m now on Fiverr! See my gigs and{" "}
+            <a
+              href="https://fiverr.com/simonkoeck"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex flex-row items-center space-x-1"
+            >
+              <b>hire me</b>
+              <HiArrowRight />
+            </a>
           </div>
         </div>
-      )}
+      </div>
 
       <AnimatePresence>
         {navigationDrawer && (
