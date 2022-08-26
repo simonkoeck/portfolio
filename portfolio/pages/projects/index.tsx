@@ -49,7 +49,7 @@ export default function ProjectsPage({ projects }: Props) {
 
 export async function getStaticProps() {
   const res = await fetch(
-    `${process.env.STRAPI_BASE_URL}/projects?populate=*&sort[0]=featured%3Adesc`
+    `${process.env.STRAPI_BASE_URL}/projects?populate=*&sort[0]=weight%3Adesc`
   );
   let projects = await res.json();
 

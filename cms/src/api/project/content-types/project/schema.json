@@ -104,6 +104,18 @@
       },
       "type": "boolean",
       "default": false
+    },
+    "weight": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "decimal",
+      "max": 10,
+      "min": 0,
+      "private": true,
+      "default": 5
     }
   }
 }
