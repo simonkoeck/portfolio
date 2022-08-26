@@ -150,7 +150,7 @@ export default function ProjectInfo({ slug, project }: Props) {
                 </div>
               </div>
             </div>
-            <div>
+            <div className="w-full">
               <Link href={"/projects"} passHref>
                 <a className="flex flex-row items-center mb-10 space-x-2 cursor-pointer">
                   <HiArrowLeft className="fill-gray-500" />
@@ -160,7 +160,7 @@ export default function ProjectInfo({ slug, project }: Props) {
                 </a>
               </Link>
 
-              <div className="px-5 py-10 md:px-20 bg-background2 rounded-xl">
+              <div className="px-7 py-10 md:px-20 bg-background2 rounded-xl">
                 <div className="flex flex-row items-center space-x-4">
                   <h1 className="text-4xl font-black tracking-tight">
                     {project.title}

@@ -194,7 +194,7 @@ const Home: NextPage = () => {
             <div className="container flex flex-row items-center justify-between px-4 py-16 mx-auto lg:px-40 ">
               <div className="flex flex-col">
                 <Headline2 text="Education" />
-                <ol className="mx-3 mt-20 sm:flex">
+                <ol className="mx-3 mt-12 sm:flex">
                   <li className="relative flex-1 mb-6 sm:mb-0">
                     <div className="flex items-center">
                       <div className="z-10 flex items-center justify-center w-6 h-6 rounded-full ring-0 bg-fuchsia-400 sm:ring-8 ring-gray-800 shrink-0">
@@ -265,7 +265,7 @@ const Home: NextPage = () => {
             <div className="container flex flex-row items-center justify-between px-4 pt-3 pb-16 mx-auto lg:px-40 ">
               <div className="flex flex-col">
                 <Headline2 text="Experience" />
-                <ol className="mx-3 mt-20 sm:flex">
+                <ol className="mx-3 mt-12 sm:flex">
                   <li className="relative flex-1 mb-6 sm:mb-0">
                     <div className="flex items-center">
                       <div className="z-10 flex items-center justify-center w-6 h-6 rounded-full ring-0 bg-fuchsia-400 sm:ring-8 ring-gray-800 shrink-0">
