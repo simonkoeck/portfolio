@@ -328,7 +328,7 @@ const Home: NextPage = () => {
                         August 2017 - March 2018
                       </time>
                       <p className="text-base font-normal text-gray-500 dark:text-gray-400">
-                        Basically the start of my journey as a web developer.
+                        Basically the start of my journey as a web developer.{" "}
                         <CustomLink href="https://www.code-base.at/">
                           View more
                         </CustomLink>

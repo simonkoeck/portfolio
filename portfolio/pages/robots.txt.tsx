@@ -18,7 +18,7 @@ export const getServerSideProps = async ({ res }: IProps) => {
   res.setHeader("Content-Type", "text/plain");
   res.write(`Sitemap: ${BASE_URL}/sitemap.xml
 User-agent: *
-Disallow:`);
+Disallow: /images/finger.png`);
   res.end();
 
   return {
