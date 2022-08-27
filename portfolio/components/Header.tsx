@@ -62,7 +62,7 @@ export default function Header({}: Props) {
 
   return (
     <>
-      <div className="w-full bg-fuchsia-500">
+      <div className="z-10 w-full bg-fuchsia-500">
         <div className="flex flex-row items-center justify-center px-4 py-[0.5rem] space-x-4">
           <HiMegaphone />
           <div className="text-[0.74rem] sm:text-sm">
@@ -79,7 +79,6 @@ export default function Header({}: Props) {
           </div>
         </div>
       </div>
-
       <AnimatePresence>
         {navigationDrawer && (
           <>
@@ -176,7 +175,11 @@ export default function Header({}: Props) {
             {Links.map((link, i) => {
               return (
                 <Link href={link.href} key={i} passHref>
-                  <a key={i} href={link.href}>
+                  <a
+                    key={i}
+                    href={link.href}
+                    className="font-semibold text-[0.93rem] tracking-tight uppercase"
+                  >
                     {link.name}
                   </a>
                 </Link>

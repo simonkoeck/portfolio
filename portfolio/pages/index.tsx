@@ -16,9 +16,25 @@ import { motion } from "framer-motion";
 import { getMany } from "../services/strapi";
 import CustomHead from "../components/Head";
 import CustomLink from "../components/Link";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const Home: NextPage = () => {
+  const [width, setWidth] = useState<number>(
+    typeof window !== "undefined" ? window.innerWidth : 0
+  );
+
+  function handleWindowSizeChange() {
+    setWidth(window.innerWidth);
+  }
+  useEffect(() => {
+    window.addEventListener("resize", handleWindowSizeChange);
+    return () => {
+      window.removeEventListener("resize", handleWindowSizeChange);
+    };
+  }, []);
+
+  const isMobile = width <= 768;
+
   const educationRef = useRef<HTMLDivElement>(null);
   return (
     <>
@@ -41,7 +57,11 @@ const Home: NextPage = () => {
                 <motion.div
                   initial={{ rotateZ: 0 }}
                   animate={{ rotateZ: 6 }}
-                  transition={{ duration: 0.3 }}
+                  transition={{
+                    duration: 0.13,
+                    delay: 0.7,
+                    default: { ease: "easeInOut" },
+                  }}
                   className="relative z-30 inline-block"
                 >
                   <div className="inline-block mx-0 my-6 transition-all rounded-lg sm:mx-2 bg-background2">
@@ -107,7 +127,13 @@ const Home: NextPage = () => {
             DEV
           </div>
           <div className="relative z-10 w-full bg-background2">
-            <div className="container px-4 pt-10 mx-auto lg:px-40">
+            <motion.div
+              className="container px-4 pt-10 mx-auto lg:px-40"
+              initial={{ opacity: 0, translateY: -30 }}
+              animate={{ opacity: 1, translateY: 0 }}
+              exit={{ opacity: 0, translateY: -30 }}
+              transition={{ duration: 0.2, delay: 0.1 }}
+            >
               <Headline2 text="Who am I?" />
               <div className="relative flex flex-row flex-wrap justify-between py-10 sm:py-16">
                 <AboutMeItem
@@ -163,7 +189,7 @@ const Home: NextPage = () => {
                   icon={HiBriefcase}
                 />
               </div>
-            </div>
+            </motion.div>
           </div>
           <div
             className="w-full"
@@ -173,21 +199,34 @@ const Home: NextPage = () => {
             }}
           >
             <div className="container px-10 py-10 mx-auto sm:flex sm:flex-row sm:items-center sm:justify-between lg:px-40">
-              <div className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:tracking-tight">
+              <motion.div
+                className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:tracking-tight"
+                whileInView={{ opacity: 1, translateX: 0 }}
+                viewport={{ once: true }}
+                initial={{ opacity: 0, translateX: -30 }}
+                transition={{ duration: 0.2, delay: 0.2 }}
+              >
                 <span className="block">Interest aroused?</span>
                 <span className="block font-bold text-fuchsia-500">
                   See all of my projects
                 </span>
-              </div>
-              <Link href={"/projects"} passHref>
-                <a
-                  href="#"
-                  className="inline-flex flex-row items-center justify-center px-3 py-2 mt-6 space-x-2 text-base font-bold text-white border border-transparent rounded-md sm:px-5 sm:py-3 sm:mt-0 bg-fuchsia-500 hover:bg-fuchsia-600"
-                >
-                  <HiArrowRight className="text-xl" />
-                  <span>Get inspired</span>
-                </a>
-              </Link>
+              </motion.div>
+              <motion.div
+                whileInView={{ opacity: 1, translateX: 0 }}
+                viewport={{ once: true }}
+                initial={{ opacity: 0, translateX: 30 }}
+                transition={{ duration: 0.2, delay: 0.2 }}
+              >
+                <Link href={"/projects"} passHref>
+                  <a
+                    href="#"
+                    className="inline-flex flex-row items-center justify-center px-3 py-2 mt-6 space-x-2 text-base font-bold text-white border border-transparent rounded-md sm:px-5 sm:py-3 sm:mt-0 bg-fuchsia-500 hover:bg-fuchsia-600"
+                  >
+                    <HiArrowRight className="text-xl" />
+                    <span>Get inspired</span>
+                  </a>
+                </Link>
+              </motion.div>
             </div>
           </div>
           <div className="w-full bg-background2" ref={educationRef}>
@@ -202,7 +241,13 @@ const Home: NextPage = () => {
                       </div>
                       <div className="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
                     </div>
-                    <div className="mt-3 sm:pr-8">
+                    <motion.div
+                      className="mt-3 sm:pr-8"
+                      whileInView={{ opacity: 1, translateY: 0 }}
+                      viewport={{ once: true }}
+                      initial={{ opacity: 0, translateY: 30 }}
+                      transition={{ duration: 0.2, delay: 0.2 }}
+                    >
                       <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                         HAK Feldkirch
                       </h3>
@@ -214,7 +259,7 @@ const Home: NextPage = () => {
                         and economic (commercial) basic training in an
                         integrated form.
                       </p>
-                    </div>
+                    </motion.div>
                   </li>
                   <li className="relative flex-1 mb-6 sm:mb-0">
                     <div className="flex items-center">
@@ -223,7 +268,16 @@ const Home: NextPage = () => {
                       </div>
                       <div className="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
                     </div>
-                    <div className="mt-3 sm:pr-8">
+                    <motion.div
+                      className="mt-3 sm:pr-8"
+                      whileInView={{ opacity: 1, translateY: 0 }}
+                      viewport={{ once: true }}
+                      initial={{ opacity: 0, translateY: 30 }}
+                      transition={{
+                        duration: 0.2,
+                        delay: isMobile ? 0.2 : 0.4,
+                      }}
+                    >
                       <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                         Bundesgymnasium Feldkirch
                       </h3>
@@ -235,7 +289,7 @@ const Home: NextPage = () => {
                         based on tradition, which meets the challenges of a
                         constantly changing society.
                       </p>
-                    </div>
+                    </motion.div>
                   </li>
                   <li className="relative flex-1 mb-6 sm:mb-0">
                     <div className="flex items-center">
@@ -244,7 +298,16 @@ const Home: NextPage = () => {
                       </div>
                       <div className="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
                     </div>
-                    <div className="mt-3 sm:pr-8">
+                    <motion.div
+                      className="mt-3 sm:pr-8"
+                      whileInView={{ opacity: 1, translateY: 0 }}
+                      viewport={{ once: true }}
+                      initial={{ opacity: 0, translateY: 30 }}
+                      transition={{
+                        duration: 0.2,
+                        delay: isMobile ? 0.2 : 0.6,
+                      }}
+                    >
                       <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                         Volksschule Feldkirch
                       </h3>
@@ -255,7 +318,7 @@ const Home: NextPage = () => {
                         Just a basic elementary school based in Feldkirch
                         (Tisis).
                       </p>
-                    </div>
+                    </motion.div>
                   </li>
                 </ol>
               </div>
@@ -273,7 +336,13 @@ const Home: NextPage = () => {
                       </div>
                       <div className="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
                     </div>
-                    <div className="mt-3 sm:pr-8">
+                    <motion.div
+                      className="mt-3 sm:pr-8"
+                      whileInView={{ opacity: 1, translateY: 0 }}
+                      viewport={{ once: true }}
+                      initial={{ opacity: 0, translateY: 30 }}
+                      transition={{ duration: 0.2, delay: 0.2 }}
+                    >
                       <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                         TripleIn Software Solutions GmbH
                       </h3>
@@ -287,7 +356,7 @@ const Home: NextPage = () => {
                           View more
                         </CustomLink>
                       </p>
-                    </div>
+                    </motion.div>
                   </li>
                   <li className="relative flex-1 mb-6 sm:mb-0">
                     <div className="flex items-center">
@@ -296,7 +365,16 @@ const Home: NextPage = () => {
                       </div>
                       <div className="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
                     </div>
-                    <div className="mt-3 sm:pr-8">
+                    <motion.div
+                      className="mt-3 sm:pr-8"
+                      whileInView={{ opacity: 1, translateY: 0 }}
+                      viewport={{ once: true }}
+                      initial={{ opacity: 0, translateY: 30 }}
+                      transition={{
+                        duration: 0.2,
+                        delay: isMobile ? 0.2 : 0.4,
+                      }}
+                    >
                       <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                         Austrian Informatic Olympiads
                       </h3>
@@ -311,7 +389,7 @@ const Home: NextPage = () => {
                           View More
                         </CustomLink>
                       </p>
-                    </div>
+                    </motion.div>
                   </li>
                   <li className="relative flex-1 mb-6 sm:mb-0">
                     <div className="flex items-center">
@@ -320,7 +398,16 @@ const Home: NextPage = () => {
                       </div>
                       <div className="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
                     </div>
-                    <div className="mt-3 sm:pr-8">
+                    <motion.div
+                      className="mt-3 sm:pr-8"
+                      whileInView={{ opacity: 1, translateY: 0 }}
+                      viewport={{ once: true }}
+                      initial={{ opacity: 0, translateY: 30 }}
+                      transition={{
+                        duration: 0.2,
+                        delay: isMobile ? 0.2 : 0.6,
+                      }}
+                    >
                       <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                         CodeBase
                       </h3>
@@ -333,7 +420,7 @@ const Home: NextPage = () => {
                           View more
                         </CustomLink>
                       </p>
-                    </div>
+                    </motion.div>
                   </li>
                 </ol>
               </div>

@@ -22,6 +22,7 @@
     "nextjs-progressbar": "^0.0.14",
     "qs": "^6.11.0",
     "react": "18.2.0",
+    "react-confetti": "^6.1.0",
     "react-country-region-selector": "^3.6.1",
     "react-dom": "18.2.0",
     "react-icons": "^4.4.0",
@@ -29,6 +30,7 @@
     "react-quill": "^2.0.0",
     "react-syntax-highlighter": "^15.5.0",
     "react-tooltip": "^4.2.21",
+    "react-use": "^17.4.0",
     "rehype-raw": "^6.1.1",
     "remark-gfm": "^3.0.1"
   },

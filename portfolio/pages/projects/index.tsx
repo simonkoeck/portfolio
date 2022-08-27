@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import React from "react";
 import CustomHead from "../../components/Head";
 import HomeLayout from "../../components/layouts/HomeLayout";
@@ -32,12 +33,16 @@ export default function ProjectsPage({ projects }: Props) {
           <div className="flex flex-row flex-wrap mt-10">
             {projects.map((p, i) => {
               return (
-                <div
+                <motion.div
                   className="w-full pb-10 pr-10 md:w-1/2 lg:w-1/3"
                   key={p.slug}
+                  initial={{ opacity: 0, translateY: -20 }}
+                  animate={{ opacity: 1, translateY: 0 }}
+                  exit={{ opacity: 0, translateY: -20 }}
+                  transition={{ duration: 0.3, delay: i * 0.08 }}
                 >
                   <ProjectItem project={p} index={i + 1} />
-                </div>
+                </motion.div>
               );
             })}
           </div>

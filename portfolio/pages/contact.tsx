@@ -17,6 +17,8 @@ import {
 import Link from "../components/Link";
 import CustomHead from "../components/Head";
 import csrf from "../services/csrf";
+import Confetti from "react-confetti";
+import useWindowSize from "react-use/lib/useWindowSize";
 
 type Props = {
   countryName?: string;
@@ -47,6 +49,8 @@ export default function Contact({
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+
+  const { width, height } = useWindowSize();
 
   useEffect(() => {
     if (countryName != null) {
@@ -161,6 +165,7 @@ export default function Contact({
         title="Simon Köck | Contact"
       />
       <HomeLayout>
+        {success == true && <Confetti width={width} height={height} />}
         <div className="container px-4 pt-12 pb-20 mx-auto">
           <h1 className="text-4xl font-black">Contact</h1>
           {success && (
@@ -338,24 +343,33 @@ export const getServerSideProps = async ({ req, res }: ISSRProps) => {
       : req.socket.remoteAddress;
 
   if (process.env.NODE_ENV == "development") ip = "81.5.250.145";
+  try {
+    const r = await fetch(`http://ip-api.com/json/${ip}`);
+    if (r.status != 200) {
+      await csrf(req, res);
+      return {
+        props: { csrfToken: req.csrfToken() },
+      };
+    }
+    const j = await r.json();
+    await csrf(req, res);
 
-  const r = await fetch(`http://ip-api.com/json/${ip}`);
-  if (r.status != 200) {
+    return {
+      props: {
+        ip,
+        countryCode: j.countryCode,
+        regionName: j.regionName,
+        countryName: j.country,
+        csrfToken: req.csrfToken(),
+      },
+    };
+  } catch (e) {
     await csrf(req, res);
     return {
-      props: { csrfToken: req.csrfToken() },
+      props: {
+        ip,
+        csrfToken: req.csrfToken(),
+      },
     };
   }
-  const j = await r.json();
-  await csrf(req, res);
-
-  return {
-    props: {
-      ip,
-      countryCode: j.countryCode,
-      regionName: j.regionName,
-      countryName: j.country,
-      csrfToken: req.csrfToken(),
-    },
-  };
 };
