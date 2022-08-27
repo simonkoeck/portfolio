@@ -72,6 +72,7 @@ function App({ Component, pageProps }: AppProps) {
         loadOptions={{
           apiKey: "cdDmZKapvuQWlYydHrDq",
           region: "eu",
+          endpoint: "https://simon.koeck.dev",
         }}
       >
         <Component {...pageProps} />
