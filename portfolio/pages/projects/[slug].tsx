@@ -43,7 +43,19 @@ export default function ProjectInfo({ slug, project }: Props) {
   const { isLoading, error, data } = useVisitorData({}, { immediate: true });
   const [liked, setLiked] = useState<boolean | null>(null);
 
-  const [likedCount, setLikedCount] = useState(project?.likes);
+  const [likedCount, setLikedCount] = useState<number | null>(null);
+
+  const fetchLikes = async () => {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/project-likes?filters[project][id][$eq]=${project?.id}`
+    );
+    const likes = await res.json();
+    setLikedCount(likes.meta.pagination.total);
+  };
+
+  useEffect(() => {
+    fetchLikes();
+  });
 
   const router = useRouter();
 
@@ -84,8 +96,8 @@ export default function ProjectInfo({ slug, project }: Props) {
 
   useEffect(() => {
     if (error) {
-      alert(error.message);
-      alert(error.name);
+      // alert(error.message);
+      // alert(error.name);
     }
   }, [error]);
 
@@ -301,6 +313,7 @@ export default function ProjectInfo({ slug, project }: Props) {
                             : "fill-gray-500")
                         }
                       />
+                      <span className="sr-only">Likes: {project?.likes}</span>
                       <span
                         className={
                           "text-sm font-medium " +
