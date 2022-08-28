@@ -21,7 +21,6 @@ function App({ Component, pageProps }: AppProps) {
   }, []);
 
   function onCookieConsentEnabled() {
-    console.log("Cookie consent enabled");
     if (allowedToUseGA()) {
       setGaAllowed(true);
     }
