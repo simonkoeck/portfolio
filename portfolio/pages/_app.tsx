@@ -7,16 +7,40 @@ import ReactTooltip from "react-tooltip";
 import "../styles/quill.css";
 import Script from "next/script";
 import { FpjsProvider } from "@fingerprintjs/fingerprintjs-pro-react";
+import CookieConsent from "../components/CookieConsent";
+import React, { useEffect } from "react";
+import { COOKIE_CONSENT } from "../constants/storage";
 
 function App({ Component, pageProps }: AppProps) {
+  const [gaAllowed, setGaAllowed] = React.useState(false);
+
+  useEffect(() => {
+    if (allowedToUseGA()) {
+      setGaAllowed(true);
+    }
+  }, []);
+
+  function onCookieConsentEnabled() {
+    console.log("Cookie consent enabled");
+    if (allowedToUseGA()) {
+      setGaAllowed(true);
+    }
+  }
+
+  function allowedToUseGA() {
+    if (typeof window !== "undefined") {
+      if (localStorage.getItem(COOKIE_CONSENT) == "accepted") {
+        return true;
+      }
+    }
+    return false;
+  }
+
   return (
     <div className="w-full min-h-screen font-inter bg-background">
-      {process.env.NODE_ENV == "production" && (
+      <CookieConsent onCookieConsentAccepted={onCookieConsentEnabled} />
+      {gaAllowed == true && (
         <>
-          <Script
-            type="text/javascript"
-            src="//cdn.cookie-script.com/s/c3e3a69b1a0b072a29376953293d14b0.js"
-          />
           <Script
             src={
               "https://www.googletagmanager.com/gtag/js?id=" +
