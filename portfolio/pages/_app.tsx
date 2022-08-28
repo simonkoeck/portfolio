@@ -39,7 +39,7 @@ function App({ Component, pageProps }: AppProps) {
   return (
     <div className="w-full min-h-screen font-inter bg-background">
       <CookieConsent onCookieConsentAccepted={onCookieConsentEnabled} />
-      {gaAllowed == true && (
+      {process.env.NODE_ENV == "production" && gaAllowed == true && (
         <>
           <Script
             src={
