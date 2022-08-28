@@ -36,7 +36,7 @@ import { AnimatePresence, motion } from "framer-motion";
 
 type Props = {
   slug: any;
-  project?: Project;
+  project: Project;
 };
 
 export default function ProjectInfo({ slug, project }: Props) {
@@ -58,6 +58,12 @@ export default function ProjectInfo({ slug, project }: Props) {
   });
 
   const router = useRouter();
+
+  useEffect(() => {
+    if (router.isFallback || !project) {
+      router.push("/projects");
+    }
+  }, [router]);
 
   const toggleLike = () => {
     if (liked == null) return;
@@ -151,8 +157,6 @@ export default function ProjectInfo({ slug, project }: Props) {
       );
     });
   }
-
-  if (router.isFallback || !project) return null;
 
   return (
     <>
@@ -473,6 +477,6 @@ export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
 
   return {
     paths: projects, //indicates that no page needs be created at build time
-    fallback: true, //indicates the type of fallback
+    fallback: "blocking", //indicates the type of fallback
   };
 };

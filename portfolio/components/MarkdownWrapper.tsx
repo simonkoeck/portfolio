@@ -3,7 +3,6 @@ import React from "react";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
-import ReactPlayer from "react-player";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 import CustomLink from "./Link";
@@ -19,7 +18,11 @@ export default function MarkdownWrapper({ children }: Props) {
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[rehypeRaw]}
-        components={{ ...CodeBlock, a: CustomMDLink, video: CustomVideo }}
+        components={{
+          ...CodeBlock,
+          a: CustomMDLink,
+          video: CustomVideo,
+        }}
       >
         {children}
       </ReactMarkdown>
@@ -63,11 +66,7 @@ function CustomVideo({
   const { width } = useWindowSize();
 
   return (
-    <ReactPlayer
-      url={props.url}
-      controls={true}
-      width={width < 1024 ? "100%" : "70%"}
-    />
+    <video src={props.url} controls width={width < 1024 ? "100%" : "80%"} />
   );
 }
 
