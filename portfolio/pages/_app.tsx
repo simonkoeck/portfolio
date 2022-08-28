@@ -14,6 +14,10 @@ function App({ Component, pageProps }: AppProps) {
       {process.env.NODE_ENV == "production" && (
         <>
           <Script
+            type="text/javascript"
+            src="//cdn.cookie-script.com/s/c3e3a69b1a0b072a29376953293d14b0.js"
+          />
+          <Script
             src={
               "https://www.googletagmanager.com/gtag/js?id=" +
               process.env.NEXT_PUBLIC_GA_MESS_ID
