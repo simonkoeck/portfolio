@@ -807,8 +807,7 @@ function Skill({ name, icon, percentage }: ISkillProps) {
   const [hasRendered, setHasRendered] = useState(false);
 
   useEffect(() => {
-    if (!isInView || !hasRendered) return;
-    setHasRendered(true);
+    if (!isInView || hasRendered == true) return;
     const controls = animate(0, percentage, {
       duration: 0.5,
 
@@ -816,9 +815,12 @@ function Skill({ name, icon, percentage }: ISkillProps) {
         if (!spanref.current) return;
         spanref.current.textContent = value.toFixed(0) + "%";
       },
+      onComplete() {
+        setHasRendered(true);
+      },
     });
     return () => controls.stop();
-  }, [isInView, hasRendered]);
+  }, [isInView, hasRendered, percentage]);
 
   return (
     <div className="w-full sm:w-[43%] mt-6 ml-6 mr-8 sm:mx-0" ref={ref}>
