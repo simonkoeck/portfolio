@@ -36,9 +36,9 @@ export default function ProjectsPage({ projects }: Props) {
                 <motion.div
                   className="w-full pb-10 pr-10 md:w-1/2 lg:w-1/3"
                   key={p.slug}
-                  initial={{ opacity: 0, translateY: -20 }}
+                  initial={{ opacity: 0, translateY: 20 }}
                   animate={{ opacity: 1, translateY: 0 }}
-                  exit={{ opacity: 0, translateY: -20 }}
+                  exit={{ opacity: 0, translateY: 20 }}
                   transition={{ duration: 0.3, delay: i * 0.08 }}
                 >
                   <ProjectItem project={p} index={i + 1} />
