@@ -11,7 +11,7 @@ export default function Footer({}: Props) {
       <div className="container px-4 py-5 mx-auto sm:py-8">
         <div className="flex flex-col-reverse flex-wrap justify-between sm:flex-row">
           <span className="w-full py-2 text-[0.8rem] sm:text-sm text-center text-gray-400 sm:w-auto sm:py-0">
-            &copy; 2022 Simon Köck. All rights reserved.
+            &copy; 2023 Simon Köck. All rights reserved.
           </span>
           <div className="flex flex-row justify-center w-full py-2 space-x-4 sm:w-auto sm:py-0">
             <Link href="/imprint" passHref>

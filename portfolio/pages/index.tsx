@@ -70,13 +70,13 @@ const Home: NextPage = () => {
                     </span>
                   </div>
                 </motion.div>
-                <div className="block md:hidden absolute top-[-78px] right-[-170px]">
+                {/* <div className="block md:hidden absolute top-[-78px] right-[-170px]">
                   <img src="/images/mobile-me.png" alt="Simon Köck" />
                   <img
                     src="/images/finger.png"
                     className="absolute top-[156px] left-[26px] w-[45px] z-50"
                   />
-                </div>
+                </div> */}
               </h1>
               <div className="relative z-30 inline-block mt-10">
                 <Link href="/contact" passHref>
@@ -105,14 +105,14 @@ const Home: NextPage = () => {
                 transition={{ duration: 0.4 }}
                 animate={{ opacity: 1 }}
               >
-                <img
+                {/* <img
                   src="/images/me.png"
                   style={{
                     filter: "saturate(70%) sepia(30%) brightness(100%)",
                   }}
                   alt="Simon Köck"
                   className="absolute bottom-0 right-[-7rem] lg:right-[6rem] z-10 lg:z-30 h-[100%] lg:h-[calc(100%_+_5rem)] pointer-events-none select-none"
-                />
+                /> */}
                 <span className="sr-only">Simon Köck</span>
               </motion.div>
             </div>
@@ -248,11 +248,11 @@ const Home: NextPage = () => {
                       initial={{ opacity: 0, translateY: 30 }}
                       transition={{ duration: 0.2, delay: 0.2 }}
                     >
-                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                      <h3 className="text-lg font-semibold text-white">
                         HAK Feldkirch
                       </h3>
                       <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-                        September 2018 - Now
+                        September 2018 - June 2023
                       </time>
                       <p className="text-base font-normal text-gray-500 dark:text-gray-400">
                         The HAK Feldkirch impart comprehensive general education
@@ -278,7 +278,7 @@ const Home: NextPage = () => {
                         delay: isMobile ? 0.2 : 0.4,
                       }}
                     >
-                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                      <h3 className="text-lg font-semibold text-white">
                         Bundesgymnasium Feldkirch
                       </h3>
                       <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
@@ -308,7 +308,7 @@ const Home: NextPage = () => {
                         delay: isMobile ? 0.2 : 0.6,
                       }}
                     >
-                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                      <h3 className="text-lg font-semibold text-white">
                         Volksschule Feldkirch
                       </h3>
                       <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
@@ -561,7 +561,7 @@ const Home: NextPage = () => {
                     </svg>
                   }
                   name="React Native"
-                  percentage={80}
+                  percentage={95}
                 />
                 <Skill
                   icon={
@@ -626,7 +626,7 @@ const Home: NextPage = () => {
                     </svg>
                   }
                   name="Flutter"
-                  percentage={80}
+                  percentage={75}
                 />
               </div>
             </div>
@@ -650,7 +650,7 @@ const Home: NextPage = () => {
                       initial={{ opacity: 0, translateY: 30 }}
                       transition={{ duration: 0.2, delay: 0.2 }}
                     >
-                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                      <h3 className="text-lg font-semibold text-white">
                         TripleIn Software Solutions GmbH
                       </h3>
                       <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
@@ -682,7 +682,7 @@ const Home: NextPage = () => {
                         delay: isMobile ? 0.2 : 0.4,
                       }}
                     >
-                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                      <h3 className="text-lg font-semibold text-white">
                         Austrian Informatic Olympiads
                       </h3>
                       <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
@@ -715,7 +715,7 @@ const Home: NextPage = () => {
                         delay: isMobile ? 0.2 : 0.6,
                       }}
                     >
-                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                      <h3 className="text-lg font-semibold text-white">
                         CodeBase
                       </h3>
                       <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
