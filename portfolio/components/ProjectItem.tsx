@@ -12,9 +12,6 @@ export function ProjectItem({ project, index }: ProjectItemProps) {
   return (
     <div className="relative w-full max-w-30 rounded-xl md:w-auto">
       <div className="flex flex-row items-center space-x-2">
-        <span className="text-lg font-semibold text-fuchsia-500">
-          {index.toString()}.
-        </span>
         <h2 className="text-xl font-semibold text-gray-200">{project.title}</h2>
         {project.featured == true && (
           <Toolip message={"Featured"}>
