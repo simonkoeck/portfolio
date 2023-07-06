@@ -1,10 +1,21 @@
-import { FaInstagram, FaGithub, FaLinkedin } from "react-icons/fa";
+import {
+  FaInstagram,
+  FaGithub,
+  FaLinkedin,
+  FaMedium,
+  FaTwitter,
+} from "react-icons/fa";
 import FiverrIcon from "../components/FiverrIcon";
 export const socials = [
   {
     name: "instagram",
     url: "https://www.instagram.com/simonkoeck_",
     icon: FaInstagram,
+  },
+  {
+    name: "twitter",
+    url: "https://twitter.com/simonkoeck_",
+    icon: FaTwitter,
   },
   {
     name: "github",
@@ -17,8 +28,8 @@ export const socials = [
     icon: FaLinkedin,
   },
   {
-    name: "fiverr",
-    url: "https://fiverr.com/simonkoeck",
-    icon: FiverrIcon,
+    name: "medium",
+    url: "https://simonkoeck.medium.com/",
+    icon: FaMedium,
   },
 ];
