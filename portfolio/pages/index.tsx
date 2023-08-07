@@ -39,7 +39,7 @@ const Home: NextPage = () => {
   return (
     <>
       <CustomHead
-        description="My Name is Simon Köck and I live in Austria. I'm 18 years old and I've been specialicing on Full-Stack-Development for about 5 years."
+        description="My Name is Simon Köck and I live in Austria. I'm 19 years old and I've been specialicing on Full-Stack-Development for about 5 years."
         title="Simon Köck | Full-Stack-Developer"
       />
       <HomeLayout>
@@ -137,9 +137,9 @@ const Home: NextPage = () => {
               <Headline2 text="Who am I?" />
               <div className="relative flex flex-row flex-wrap justify-between py-10 sm:py-16">
                 <AboutMeItem
-                  text="My Name is Simon Köck and I live in Austria. I'm 18 years
+                  text="My Name is Simon Köck and I live in Austria. I'm 19 years
                       old and I've been specialicing on
-                      Full-Stack-Development for about 5 years."
+                      Full-Stack-Development for about 6 years."
                   title="About Me"
                   icon={HiUser}
                 />
@@ -147,12 +147,11 @@ const Home: NextPage = () => {
                 <AboutMeItem
                   text={
                     <>
-                      I&apos;m in the 5th grade of{" "}
+                      I have successfully graduated from the{" "}
                       <CustomLink href="https://hak-feldkirch.at">
                         HAK Feldkirch
                       </CustomLink>{" "}
                       in the Digital Business branch in Vorarlberg, Austria.
-                      This is my last year (hopefully).{" "}
                       <CustomLink
                         href=""
                         onClick={() => {
@@ -170,7 +169,7 @@ const Home: NextPage = () => {
                   icon={HiAcademicCap}
                 />
                 <AboutMeItem
-                  text="	I have been active in a number of sports since I was 6 years old. I have played football, table tennis, etc. In the winter my favourite sport is skiing in the beautiful Alps."
+                  text="I have been active in a number of sports since I was 6 years old. I have played football, table tennis, etc. In the winter my favourite sport is skiing in the beautiful Alps."
                   title="Hobbies"
                   icon={HiStar}
                 />
@@ -654,7 +653,7 @@ const Home: NextPage = () => {
                         TripleIn Software Solutions GmbH
                       </h3>
                       <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-                        September 2018 - Now
+                        September 2018 - September 2023
                       </time>
                       <p className="text-base font-normal text-gray-500 dark:text-gray-400">
                         I&apos;ve been working as a oracle database developer at
